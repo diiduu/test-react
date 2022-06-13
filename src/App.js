@@ -21,16 +21,13 @@ export default function App() {
           <h1>{name1}가 아닐껄?</h1>
         )}
       </div>
-
       {/* 2. AND(&&) 사용한다. 조건이 TRUE 일 경우 렌더링, FALSE 일 경우 렌더링 아예 안할때 사용.  */}
       <div>{name2 === "홍지수" && <h1>{name2} 정답입니다. </h1>}</div>
-
       {/* 3. undefined 는 렌더링이 되면 안된다. 값이 undefined가 나올수도 있을 경우, 사용값을 지정해서 사용값이 출력되도록 코딩 . JSX 안에서(<div></div> 태그 안) undefined 렌더링은 괜찮다. */}
       <div>
         {name3}
         {name3 || "undefined 출력"}
       </div>
-
       {/* 4. const로 style 선언해도 상관 없고, div 태그에 바로 style 선언해도 상관 없다.  */}
       <div
         style={{
@@ -43,15 +40,16 @@ export default function App() {
       >
         {name4}
       </div>
-
       {/* 5. App.css 에서 선언한 .react 를 사용해서 스타일을 바꿀 수 있다. -> App.css 를 꼭 import 해서 사용해야함.  */}
       <div className="react">{name5}</div>
-
       {/* 6. 컴포넌트 불러와보자. 5번과 동일하게 컴포넌트 파일 import 해줘야 사용가능 
        <MyComponents /> */}
-
       {/* 7. props(properties) 사용. 컴포넌트 속성 설정 시 사용하는 요소. 해당 컴포넌트를 불러와 사용하는 부모 컴포넌트(여기서 App.js) 에서 설정할 수 있음. */}
-      <MyComponents name="지수" />
+      <MyComponents /> {/*=> props.name 지정 없을 때 기본값 출력*/}
+      <MyComponents name="홍소영" />{" "}
+      {/*=> props.name 지정 했을 때 지정값 출력*/}
+      {/* 8. 컴포넌트 태그 사이의 내용을 보여주는 props 를 children 이라고 한다. */}
+      <MyComponents>리액트</MyComponents>
     </div>
   );
 }
